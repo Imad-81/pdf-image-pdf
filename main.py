@@ -1,6 +1,7 @@
 import sys
 import argparse
 import io
+import os
 
 try:
     import fitz  # PyMuPDF
@@ -61,8 +62,12 @@ def convert_pdf_to_image_pdf(input_path, output_path, dpi=300):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Convert a normal PDF into a PDF containing only JPEG images.")
     parser.add_argument("input_pdf", help="Path to the input PDF file")
-    parser.add_argument("output_pdf", help="Path for the output PDF file")
     parser.add_argument("--dpi", type=int, default=300, help="Resolution in DPI for the output images (default: 300)")
     
     args = parser.parse_args()
-    convert_pdf_to_image_pdf(args.input_pdf, args.output_pdf, args.dpi)
+    
+    # Generate output path automatically
+    base, ext = os.path.splitext(args.input_pdf)
+    output_pdf = f"{base}_image{ext}"
+    
+    convert_pdf_to_image_pdf(args.input_pdf, output_pdf, args.dpi)

@@ -15,7 +15,7 @@ pip install PyMuPDF Pillow
 You can run the script from your terminal:
 
 ```bash
-python main.py <input_pdf> <output_pdf>
+python main.py <input_pdf>
 ```
 
 **Options:**
@@ -26,10 +26,10 @@ python main.py <input_pdf> <output_pdf>
 
 Convert a PDF with the default 300 DPI resolution:
 ```bash
-python main.py my_document.pdf my_document_flattened.pdf
+python main.py my_document.pdf
 ```
 
 Convert a PDF using a lower 150 DPI resolution for a smaller file size:
 ```bash
-python main.py my_document.pdf my_document_flattened.pdf --dpi 150
+python main.py my_document.pdf --dpi 150
 ```
