@@ -33,3 +33,25 @@ Convert a PDF using a lower 150 DPI resolution for a smaller file size:
 ```bash
 python main.py my_document.pdf --dpi 150
 ```
+
+## Docker Usage
+
+You can also run this tool using Docker without needing to install Python or dependencies locally.
+
+### 1. Build the Image
+```bash
+docker build -t pdf-converter .
+```
+
+### 2. Run the Converter
+To convert a file, mount your current directory to `/data` in the container:
+```bash
+docker run -v "$(pwd):/data" pdf-converter <your_filename.pdf> --dpi 300
+```
+
+### Using Docker Compose
+Alternatively, you can use Docker Compose:
+```bash
+# Edit docker-compose.yaml to set your filename, then:
+docker-compose run converter <your_filename.pdf>
+```

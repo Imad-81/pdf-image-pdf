@@ -1,0 +1,6 @@
+services:
+  converter:
+    build: .
+    volumes:
+      - .:/data
+    command: ["input.pdf"] # Replace with your filename
